@@ -189,6 +189,7 @@ pas copier. Il doit être écrit à la main, jamais généré.
 - `SKILL.md` (point d'entrée du coach, avec frontmatter)
 - `quentin/pieges.md` (10 pièges du choix de projet)
 - `quentin/securite.md` (référence sécurité pour le coach)
+- `quentin/principes.md` (les 9 arbitrages listés plus haut dans ce fichier)
 - `quentin/stack-web.md`, `stack-ios.md`, `stack-android.md`
 - `templates/CLAUDE-md-web.md`, `CLAUDE-md-ios.md`, `CLAUDE-md-android.md`
 
@@ -198,16 +199,12 @@ pas copier. Il doit être écrit à la main, jamais généré.
 - `README.md` (installation, mise à jour, prérequis)
 
 ### À corriger dans les fichiers existants
-- **`quentin/principes.md` incomplet** : ne contient que 6 des 9 arbitrages
-  listés plus haut dans ce fichier. Manquent : la règle Supabase (publishable
-  key OK si RLS active, secret key jamais), "construire dans l'ordre de
-  valeur", et "reporter une feature n'est pas un échec".
 - **`plugin.json`** : ébauche minimale (nom, description, version 0.0.1),
   à valider avant toute distribution réelle.
 
 Résolu depuis la dernière mise à jour de ce fichier : le chevauchement
-phases 4/5 et les références à `projet/app/` (voir note dans "Où vivent les
-fichiers de l'utilisateur" ci-dessus).
+phases 4/5, les références à `projet/app/` (voir note dans "Où vivent les
+fichiers de l'utilisateur" ci-dessus), et `quentin/principes.md` incomplet.
 
 ---
 
