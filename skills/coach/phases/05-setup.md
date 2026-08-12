@@ -1,8 +1,9 @@
 # Phase 5 — Initialiser le projet
 
-Objectif : créer le projet dans `projet/app/`, vérifier qu'il tourne,
-poser le CLAUDE.md du projet.
-Livrable : un projet qui démarre et affiche quelque chose à l'écran.
+Objectif : créer le projet, installer le CLAUDE.md rédigé en phase 4,
+vérifier que tout tourne, et poser le filet de sécurité.
+Livrable : un projet qui démarre et affiche quelque chose à l'écran,
+avec son CLAUDE.md en place et un premier point de sauvegarde.
 
 ## Règles pour cette phase
 - Lis `projet/profil.md`, `projet/stack.md`, `projet/architecture.md`.
@@ -27,76 +28,76 @@ chose coince, dis-le-moi tout de suite, on règle. »
 
 ## Étape 5.1 — L'emplacement du projet
 
-⚠️ RÈGLE STRUCTURANTE : le code de l'app va dans `projet/app/`,
-à l'intérieur du kit. Pas ailleurs.
+Le code de l'app se construit à la racine du dossier où l'utilisateur
+a lancé Claude Code — le même dossier que `projet/`. Il n'y a qu'un
+seul dossier de travail.
 
 Structure finale :
 
 ```
-dl-kit/
-├── CLAUDE.md          ← le coach (reste chargé en permanence)
-├── phases/
-├── quentin/
-└── projet/
-    ├── progression.md
-    ├── profil.md
-    ├── idee.md
-    ├── features.md
-    ├── stack.md
-    ├── architecture.md
-    └── app/           ← le code de l'app, avec son propre CLAUDE.md
+mon-projet/
+├── projet/
+│   ├── progression.md
+│   ├── profil.md
+│   ├── idee.md
+│   ├── features.md
+│   ├── stack.md
+│   ├── architecture.md
+│   └── CLAUDE.md      ← brouillon rédigé en phase 4, installé ici-bas
+├── CLAUDE.md           ← une fois installé (étape 5.5)
+└── [le code de l'app]
 ```
 
-Explication à donner à l'utilisateur :
-« Ton app se construit dans `projet/app/`, à l'intérieur du kit. C'est
-volontaire : ça me permet de rester ton coach pendant toute la
-construction, avec tout ce qu'on a décidé ensemble. Tu ne repars pas
-de zéro dans un dossier vide. »
-
-⚠️ Ne lance JAMAIS une nouvelle session Claude Code depuis
-`projet/app/`. Tout se fait depuis la racine `dl-kit/`, comme depuis
-le début. C'est ce qui garde le coach actif.
-
-⚠️ Le nom du dossier `app/` ne change pas, quel que soit le nom de
-l'application. Le nom de l'app est défini dans son CLAUDE.md et dans
-sa configuration, pas dans le nom du dossier.
+Explication à donner à l'utilisateur : « Ton app se construit ici,
+dans ce même dossier. Les fichiers de `projet/` restent à côté : ils
+gardent la trace de tout ce qu'on a décidé ensemble. »
 
 ## Étape 5.2 — Créer le projet
 
-Toutes les commandes de création s'exécutent depuis `dl-kit/`, en
-ciblant `projet/app`.
+Crée le projet avec l'outil adapté à la stack de `stack.md`,
+**directement à la racine du dossier de travail** — pas dans un
+sous-dossier créé par l'outil. La plupart des outils de scaffolding
+créent un nouveau sous-dossier par défaut ; vérifie l'option qui cible
+le dossier courant avant de lancer la commande (ex. `.` en argument).
 
-**Web** : crée le projet Next.js dans `projet/app`. Attends la fin de
-l'installation, qui peut prendre plusieurs minutes — préviens
-l'utilisateur avant, pour qu'il ne pense pas que c'est bloqué.
+Explique ce que fait la commande AVANT de la lancer si niveau débutant.
+
+**Web** : crée le projet Next.js en ciblant le dossier courant.
+Attends la fin de l'installation, qui peut prendre plusieurs minutes —
+préviens l'utilisateur avant, pour qu'il ne pense pas que c'est
+bloqué.
 
 **iOS** : guide la création du projet dans Xcode, écran par écran.
 Xcode ne se pilote pas en ligne de commande pour cette étape : donne
 les clics exacts (nom du projet, interface SwiftUI, langage Swift), et
-indique comme emplacement le dossier `projet/app` du kit.
+indique comme emplacement le dossier de travail courant.
 
-⚠️ Si iOS : vérifie que les dossiers synchronisés au système de fichiers
-sont utilisés (voir `quentin/stack-ios.md`). Sans ça, chaque fichier
-créé par l'IA en ligne de commande ne sera pas pris en compte par
-Xcode, et l'utilisateur aura des erreurs de compilation
+⚠️ Si iOS : vérifie que les dossiers synchronisés au système de
+fichiers sont utilisés (voir `quentin/stack-ios.md`). Sans ça, chaque
+fichier créé par l'IA en ligne de commande ne sera pas pris en compte
+par Xcode, et l'utilisateur aura des erreurs de compilation
 incompréhensibles pendant toute la phase 6.
 
-**Android** : guide la création du projet dans Android Studio, écran par
-écran (nom du projet, langage Kotlin, template Empty Activity avec
-Jetpack Compose), en ciblant `projet/app`. Une fois créé, toute
-modification du fichier `build.gradle.kts` faite en ligne de commande
-nécessite une synchronisation Gradle avant de continuer (voir
-`quentin/stack-android.md`) — sans elle, les nouvelles dépendances ne
-sont pas reconnues et l'IA risque de « corriger » du code qui n'a en
-réalité pas encore été synchronisé.
+**Android** : guide la création du projet dans Android Studio, écran
+par écran (nom du projet, langage Kotlin, template Empty Activity avec
+Jetpack Compose), en ciblant le dossier de travail courant. Une fois
+créé, toute modification du fichier `build.gradle.kts` faite en ligne
+de commande nécessite une synchronisation Gradle avant de continuer
+(voir `quentin/stack-android.md`) — sans elle, les nouvelles
+dépendances ne sont pas reconnues et l'IA risque de « corriger » du
+code qui n'a en réalité pas encore été synchronisé.
+
+Vérifie que le projet démarre correctement avant de continuer : lance-
+le et fais confirmer à l'utilisateur qu'il voit bien quelque chose
+s'afficher.
+
+⚠️ Ne continue pas si le projet ne démarre pas. Un problème
+d'installation non résolu ici deviendra un blocage bien plus coûteux
+en phase 6.
 
 ## Étape 5.3 — Premier lancement
 
 Lance le projet et fais constater le résultat à l'utilisateur.
-
-⚠️ La commande de lancement s'exécute depuis `projet/app/`, pas depuis
-la racine du kit. C'est la seule chose qui change de dossier : les
-commandes du projet ciblent le projet.
 
 **Web** : commande de démarrage, puis « ouvre ton navigateur sur
 l'adresse affichée. Tu dois voir la page d'accueil par défaut. »
@@ -128,35 +129,33 @@ contourner. Explique le problème et propose la solution propre
 **Port déjà utilisé (web)** → une autre application occupe le port.
 Propose un autre port plutôt que de tuer un processus au hasard.
 
-**Commande lancée depuis le mauvais dossier** → erreur fréquente avec
-cette structure. Vérifie systématiquement le répertoire courant avant
-de conclure à autre chose.
-
 **Xcode : erreur de signature / compte développeur** → un compte Apple
 gratuit suffit pour le simulateur. Ne fais pas payer les 99 $ à ce
 stade, c'est seulement nécessaire pour publier.
 
 **Android Studio : dépendance non reconnue après modification de
-build.gradle.kts** → une synchronisation Gradle manuelle est nécessaire
-(« Sync Project with Gradle Files »). Ne cherche pas une erreur de code
-avant d'avoir vérifié ce point.
+build.gradle.kts** → une synchronisation Gradle manuelle est
+nécessaire (« Sync Project with Gradle Files »). Ne cherche pas une
+erreur de code avant d'avoir vérifié ce point.
 
 Règle générale : si une erreur persiste après deux tentatives, ne
 répète pas la même approche. Change de méthode, ou propose une
 alternative (par exemple : basculer sur le web si l'installation iOS
 est bloquée par la machine).
 
-## Étape 5.5 — Poser le CLAUDE.md du projet
+## Étape 5.5 — Installer le CLAUDE.md du projet
 
-Copie le `CLAUDE.md` rédigé en phase 4 dans `projet/app/`.
+Déplace le brouillon `projet/CLAUDE.md` (rédigé en phase 4) à la
+racine du projet, à côté du code : il devient `CLAUDE.md`.
 
-⚠️ Il y a maintenant DEUX fichiers CLAUDE.md, et c'est normal :
-- `dl-kit/CLAUDE.md` → ton rôle de coach, la méthode
-- `dl-kit/projet/app/CLAUDE.md` → le contexte technique de l'app
+Il n'y a qu'un seul fichier CLAUDE.md pour ce projet — celui que tu
+viens d'installer. Ton rôle de coach à toi vient du plugin installé
+sur la machine de l'utilisateur, il n'a pas besoin d'un fichier séparé
+dans le dossier du projet.
 
-Explique-le à l'utilisateur en une phrase : « Le premier me dit comment
-t'accompagner, le second décrit ton app. Les deux sont lus
-automatiquement quand on travaille. »
+Explique-le en une phrase à l'utilisateur : « Ce fichier est lu
+automatiquement à chaque session de travail sur ton projet. C'est lui
+qui donne le contexte à l'IA. »
 
 Vérifie deux points et dis-les à voix haute :
 - Le CLAUDE.md du projet fait moins de 80 lignes
@@ -176,25 +175,43 @@ par l'utilisateur, pas par toi — il doit s'exercer sur quelque chose
 de trivial avant la phase 6. Si son prompt est vague, corrige-le
 maintenant : c'est le meilleur moment possible pour apprendre.
 
-## Étape 5.7 — Vérifier le filet de sécurité
+## Étape 5.7 — Le filet de sécurité
 
-Avant d'entrer en construction, un dernier contrôle :
+Mets en place le moyen de revenir en arrière.
 
-- Les checkpoints Claude Code fonctionnent (testé en phase 4)
-- Si Git est initialisé : fais un commit avec le projet propre.
-  C'est le point de retour « projet neuf qui marche ».
+- Vérifie que les points de sauvegarde sont actifs.
+- Fais un premier point de sauvegarde maintenant, avec le projet qui
+  démarre et son CLAUDE.md en place. C'est le point de retour de
+  référence.
+- Explique en une phrase : « Si l'IA casse quelque chose pendant la
+  construction, on peut revenir à un état qui marchait. »
 
-Dis explicitement : « Si tout part en vrille en phase 6, tu peux
-toujours revenir ici. »
+Si niveau débutant : ne rentre pas dans le détail de Git. L'essentiel
+est de savoir qu'un retour arrière est possible et comment le demander.
 
-## Étape 5.8 — Vérifications avant construction
+## Étape 5.8 — Le test de démarrage à froid
+
+Test important, à ne pas sauter :
+
+Demande à l'utilisateur de fermer la session en cours et d'en ouvrir
+une nouvelle dans le dossier du projet. Puis de poser une question
+simple sur le projet.
+
+Objectif : vérifier que le CLAUDE.md est bien lu et que l'IA sait de
+quoi il s'agit sans qu'on lui réexplique.
+
+Si ce n'est pas le cas : le fichier est mal placé ou mal formé.
+Corrige maintenant — c'est bien plus coûteux à découvrir en pleine
+construction.
+
+## Étape 5.9 — Vérifications avant construction
 
 Passe en revue, en une ligne chacun :
-- [ ] Le projet est bien dans `projet/app/`
 - [ ] Le projet démarre
 - [ ] L'utilisateur voit son app à l'écran
-- [ ] `projet/app/CLAUDE.md` est en place, moins de 80 lignes
+- [ ] `CLAUDE.md` est à la racine du projet, moins de 80 lignes
 - [ ] Le point de sauvegarde initial existe
+- [ ] Le test de démarrage à froid est passé
 - [ ] Aucune erreur non résolue
 
 Si un point n'est pas coché : ne passe pas à la phase 6. Règle-le.
@@ -209,9 +226,9 @@ Mets à jour `projet/architecture.md` avec une section :
 ## Setup
 
 - Projet créé le : [date]
-- Emplacement : projet/app/
-- Commande de lancement : [commande] (depuis projet/app/)
+- Commande de lancement : [commande]
 - Premier lancement validé : oui
+- CLAUDE.md installé à la racine, vérifié
 - Point de sauvegarde initial : [checkpoint / commit]
 
 ### Problèmes rencontrés
