@@ -1,0 +1,16 @@
+{
+    "name": "dl-kit",
+    "description": "La méthode de Développeur Libre pour finir une app avec Claude Code, de l'idée à la publication.",
+    "owner": {
+        "name": "Quentin Cornu",
+        "email": "contact@developpeurlibre.com"
+    },
+    "plugins": [
+        {
+            "name": "dl-kit",
+            "source": "./",
+            "description": "Je suis ton coach qui t'accompagne de ton idée jusqu'à la publication de ton app",
+            "repository": "https://github.com/DeveloppeurLibre/dl-kit"
+        }
+    ]
+}

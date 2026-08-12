@@ -1,5 +1,9 @@
 {
     "name": "dl-kit",
     "description": "Je suis ton coach qui t'accompagne de ton idée jusqu'à la publication de ton app",
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "author": {
+        "name": "Quentin Cornu",
+        "email": "contact@developpeurlibre.com"
+    }
 }

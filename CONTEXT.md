@@ -192,15 +192,21 @@ pas copier. Il doit être écrit à la main, jamais généré.
 - `quentin/principes.md` (les 9 arbitrages listés plus haut dans ce fichier)
 - `quentin/stack-web.md`, `stack-ios.md`, `stack-android.md`
 - `templates/CLAUDE-md-web.md`, `CLAUDE-md-ios.md`, `CLAUDE-md-android.md`
+- `README.md` (installation, mise à jour, prérequis — vérifié contre la
+  doc officielle Claude Code)
+- `.claude-plugin/marketplace.json` (marketplace `dl-kit`, plugin `dl-kit`
+  en `source: "./"`). Validé avec `claude plugin validate .` et testé en
+  conditions réelles : `claude plugin marketplace add ./` puis
+  `claude plugin install dl-kit@dl-kit` installent le skill `coach` sans
+  erreur. Coût en contexte mesuré : ~77 tokens always-on, ~1.1k à
+  l'invocation.
 
 ### À écrire
 - `templates/PRD.md`
-- `marketplace.json`
-- `README.md` (installation, mise à jour, prérequis)
 
 ### À corriger dans les fichiers existants
-- **`plugin.json`** : ébauche minimale (nom, description, version 0.0.1),
-  à valider avant toute distribution réelle.
+Rien d'identifié pour l'instant. `plugin.json` contient maintenant un
+`author`, `claude plugin validate .` passe sans avertissement.
 
 Résolu depuis la dernière mise à jour de ce fichier : le chevauchement
 phases 4/5, les références à `projet/app/` (voir note dans "Où vivent les
