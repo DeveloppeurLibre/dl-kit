@@ -35,8 +35,8 @@ frais, publication en quelques minutes.
 développement peut échouer en production. C'est la cause n°1 des
 échecs de publication.
 
-Lance la commande de build depuis `projet/app/` et vérifie qu'elle
-se termine sans erreur.
+Lance la commande de build depuis la racine du projet et vérifie
+qu'elle se termine sans erreur.
 
 Si le build échoue :
 - Lis le message d'erreur en entier avant d'agir
@@ -49,7 +49,7 @@ Si le build échoue :
 
 Si Git n'est pas encore initialisé (niveau débutant), c'est le moment.
 
-- Initialise le dépôt dans `projet/app/`
+- Initialise le dépôt à la racine du projet
 - ⚠️ Vérifie le `.gitignore` AVANT le premier envoi : les fichiers de
   configuration contenant des secrets ne doivent pas partir
 - Crée le dépôt distant et envoie le code
@@ -62,15 +62,7 @@ Préviens avant, pas après.
 
 Connecte le dépôt à Netlify.
 
-⚠️ POINT SPÉCIFIQUE À CE KIT : le code de l'app n'est pas à la racine
-du dépôt s'il a été envoyé depuis le kit. Si c'est le cas, il faut
-renseigner le répertoire de base (`base directory`) dans la
-configuration du déploiement, sinon le build échoue avec une erreur
-incompréhensible.
-
-Vérifie ce point AVANT de lancer le premier déploiement.
-
-Renseigne également, si nécessaire :
+Renseigne, si nécessaire :
 - La commande de build
 - Le dossier de publication
 - Les variables d'environnement (les mêmes qu'en local)

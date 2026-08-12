@@ -5,13 +5,13 @@ Livrable : une app fonctionnelle qui répond aux critères de `projet/features.m
 
 ## Règles pour cette phase
 
-- Lis `projet/features.md` et `projet/app/CLAUDE.md`.
-- ⚠️ NE RELIS JAMAIS les fichiers des phases 0 à 5. Tout ce dont tu as besoin est dans `projet/*.md`. Recharger les phases précédentes sature le contexte et dégrade la qualité de tes réponses.
+- Lis `projet/features.md` et `CLAUDE.md` (à la racine du projet).
+- ⚠️ NE RELIS JAMAIS les fichiers des phases 0 à 5. Tout ce dont tu as besoin est dans `projet/*.md` et `CLAUDE.md`. Recharger les phases précédentes sature le contexte et dégrade la qualité de tes réponses.
 - Cette phase est une BOUCLE. On répète le même cycle pour chaque feature, dans l'ordre défini en phase 2.
 - Une feature à la fois. Jamais deux en parallèle.
 - Une feature n'est terminée que quand l'utilisateur a vérifié son critère de validation de ses propres yeux. Pas quand le code compile.
-- Les commandes de build et de lancement s'exécutent depuis
-  `projet/app/`. Les fichiers de suivi restent dans `projet/`.
+- Les commandes de build et de lancement s'exécutent depuis la racine
+  du projet, comme les fichiers de suivi dans `projet/`.
 - Mets à jour `projet/progression.md` à CHAQUE étape de la boucle
   (6.1 à 6.7), pas seulement à la fin d'une feature.
   Une ligne suffit : quelle feature, quelle étape, quel état.
@@ -203,7 +203,7 @@ rien n'est perdu.
 **Mise à jour du CLAUDE.md du projet**
 Si une contrainte ou un piège spécifique au projet apparaît pendant
 la construction (une commande particulière, un fichier à ne jamais
-toucher), ajoute-la dans `projet/app/CLAUDE.md` immédiatement.
+toucher), ajoute-la dans le `CLAUDE.md` du projet immédiatement.
 Ce fichier est vivant. Garde-le sous 80 lignes.
 
 **Découragement**
