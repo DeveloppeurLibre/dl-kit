@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Secrets / config locale
+.env
+.env.local
+
+# Claude Code (état local, jamais à versionner dans le kit)
+.claude/settings.local.json
