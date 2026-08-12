@@ -77,8 +77,8 @@ Contenu obligatoire, dans cet ordre :
    confirmation avant d'ajouter toute fonctionnalité non listée.
 5. **Les caveats du projet** — spécificités non devinables :
    contraintes de la stack, points de sécurité (`quentin/securite.md`),
-   pièges connus de la plateforme (`quentin/stack-ios.md` ou
-   `stack-web.md`).
+   pièges connus de la plateforme (`quentin/stack-web.md`,
+   `quentin/stack-ios.md` ou `quentin/stack-android.md` selon le cas).
 6. **Une ligne sur le niveau de l'utilisateur** — pour que l'IA adapte
    ses explications pendant la construction.
 

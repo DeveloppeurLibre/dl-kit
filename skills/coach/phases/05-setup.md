@@ -81,6 +81,15 @@ créé par l'IA en ligne de commande ne sera pas pris en compte par
 Xcode, et l'utilisateur aura des erreurs de compilation
 incompréhensibles pendant toute la phase 6.
 
+**Android** : guide la création du projet dans Android Studio, écran par
+écran (nom du projet, langage Kotlin, template Empty Activity avec
+Jetpack Compose), en ciblant `projet/app`. Une fois créé, toute
+modification du fichier `build.gradle.kts` faite en ligne de commande
+nécessite une synchronisation Gradle avant de continuer (voir
+`quentin/stack-android.md`) — sans elle, les nouvelles dépendances ne
+sont pas reconnues et l'IA risque de « corriger » du code qui n'a en
+réalité pas encore été synchronisé.
+
 ## Étape 5.3 — Premier lancement
 
 Lance le projet et fais constater le résultat à l'utilisateur.
@@ -92,6 +101,10 @@ commandes du projet ciblent le projet.
 **Web** : commande de démarrage, puis « ouvre ton navigateur sur
 l'adresse affichée. Tu dois voir la page d'accueil par défaut. »
 **iOS** : lancement dans le simulateur.
+**Android** : lancement dans l'émulateur. Vérifie que l'image système
+utilisée inclut Google Play si l'app en aura besoin plus tard (voir
+`quentin/stack-android.md`) — plus simple à corriger maintenant qu'en
+phase 6.
 
 Ne continue PAS tant que l'utilisateur n'a pas confirmé qu'il voit
 quelque chose. C'est le premier moment de victoire concrète du
@@ -122,6 +135,11 @@ de conclure à autre chose.
 **Xcode : erreur de signature / compte développeur** → un compte Apple
 gratuit suffit pour le simulateur. Ne fais pas payer les 99 $ à ce
 stade, c'est seulement nécessaire pour publier.
+
+**Android Studio : dépendance non reconnue après modification de
+build.gradle.kts** → une synchronisation Gradle manuelle est nécessaire
+(« Sync Project with Gradle Files »). Ne cherche pas une erreur de code
+avant d'avoir vérifié ce point.
 
 Règle générale : si une erreur persiste après deux tentatives, ne
 répète pas la même approche. Change de méthode, ou propose une

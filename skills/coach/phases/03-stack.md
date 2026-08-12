@@ -58,6 +58,15 @@ Présente la stack complète d'un bloc, sans la faire choisir.
 - Base de données distante : [selon étape 2.5]
 - Publication : App Store
 
+**Si Android** (voir `quentin/stack-android.md`) :
+
+- Langage : Kotlin
+- Interface : Jetpack Compose
+- Outil : Android Studio
+- Données locales : Room
+- Base de données distante : [selon étape 2.5]
+- Publication : Google Play
+
 Puis une justification courte, adaptée au niveau :
 - Débutant : « C'est ce qui est le mieux compris par l'IA, donc tu
   auras moins de blocages. »
@@ -106,6 +115,8 @@ Liste ce qui doit être présent sur la machine et vérifie un par un :
 
 **Web** : Node.js, un éditeur de code, Git
 **iOS** : Xcode, un compte Apple (gratuit suffit pour tester)
+**Android** : Android Studio, un JDK (installé avec Android Studio), un
+compte Google (gratuit suffit pour tester)
 
 Pour chaque élément manquant : donne la commande ou le lien
 d'installation, adapté au système d'exploitation de `profil.md`.
