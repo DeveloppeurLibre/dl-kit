@@ -77,11 +77,13 @@ dl-kit/
 │       │   ├── principes.md
 │       │   ├── pieges.md
 │       │   ├── securite.md
+│       │   ├── stack-web.md
 │       │   ├── stack-ios.md
-│       │   └── stack-web.md
+│       │   └── stack-android.md
 │       └── templates/
-│           ├── CLAUDE-md-ios.md
 │           ├── CLAUDE-md-web.md
+│           ├── CLAUDE-md-ios.md
+│           ├── CLAUDE-md-android.md
 │           └── PRD.md
 ├── CONTEXTE.md              ← ce fichier, non distribué
 └── README.md
@@ -113,9 +115,11 @@ L'utilisateur lance Claude Code dans son propre dossier de projet. Le coach est
 disponible parce que le plugin est installé au scope utilisateur.
 
 ⚠️ Historique : une version antérieure imbriquait le projet dans le kit
-(`dl-kit/projet/app/`). ABANDONNÉ avec le passage au plugin. Si une instruction
-mentionne encore `projet/app/`, un changement de dossier, ou un `base directory`
-Netlify lié à l'imbrication : c'est périmé, à supprimer.
+(`dl-kit/projet/app/`). ABANDONNÉ avec le passage au plugin. Corrigé dans les
+phases 4, 5, 6 et 8 (branche `fix/projet-app`) : plus aucune référence à
+`projet/app/`, au `base directory` Netlify lié à l'imbrication, ni au concept
+de deux fichiers `CLAUDE.md`. Si une instruction de ce type réapparaît dans un
+fichier, c'est une régression — à corriger immédiatement.
 
 ---
 
@@ -182,25 +186,28 @@ pas copier. Il doit être écrit à la main, jamais généré.
 
 ### Écrit
 - Phases 00 à 08 (contenu rédigé)
+- `SKILL.md` (point d'entrée du coach, avec frontmatter)
 - `quentin/pieges.md` (10 pièges du choix de projet)
 - `quentin/securite.md` (référence sécurité pour le coach)
+- `quentin/stack-web.md`, `stack-ios.md`, `stack-android.md`
+- `templates/CLAUDE-md-web.md`, `CLAUDE-md-ios.md`, `CLAUDE-md-android.md`
 
 ### À écrire
-- `SKILL.md` (adaptation du CLAUDE.md coach, avec frontmatter)
-- `quentin/principes.md`
-- `quentin/stack-ios.md` et `quentin/stack-web.md`
-- Les templates
-- `plugin.json` et `marketplace.json`
+- `templates/PRD.md`
+- `marketplace.json`
 - `README.md` (installation, mise à jour, prérequis)
 
 ### À corriger dans les fichiers existants
-- **Chevauchement phases 4 et 5** : les étapes 4.2 (structure des dossiers) et
-  4.5 (Git, filet de sécurité) sont des actions de setup. Elles doivent passer
-  en phase 5. La phase 4 ne produit que des décisions sur papier.
-- **Références à `projet/app/`** et aux changements de dossier : périmées,
-  à supprimer partout.
-- **Instruction d'initialisation via `/init`** : contraire aux principes,
-  à supprimer si elle traîne encore.
+- **`quentin/principes.md` incomplet** : ne contient que 6 des 9 arbitrages
+  listés plus haut dans ce fichier. Manquent : la règle Supabase (publishable
+  key OK si RLS active, secret key jamais), "construire dans l'ordre de
+  valeur", et "reporter une feature n'est pas un échec".
+- **`plugin.json`** : ébauche minimale (nom, description, version 0.0.1),
+  à valider avant toute distribution réelle.
+
+Résolu depuis la dernière mise à jour de ce fichier : le chevauchement
+phases 4/5 et les références à `projet/app/` (voir note dans "Où vivent les
+fichiers de l'utilisateur" ci-dessus).
 
 ---
 
